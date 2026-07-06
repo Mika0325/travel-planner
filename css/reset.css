@@ -1,0 +1,92 @@
+/* ==========================================
+   Reset CSS
+   Travel Planner
+========================================== */
+
+/* 全要素 */
+
+*,
+*::before,
+*::after {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+/* HTML */
+
+html {
+
+    font-size: 16px;
+
+    scroll-behavior: smooth;
+
+}
+
+/* Body */
+
+body {
+
+    min-height: 100vh;
+
+    text-rendering: optimizeLegibility;
+
+    -webkit-font-smoothing: antialiased;
+
+}
+
+/* 画像 */
+
+img,
+picture {
+
+    max-width: 100%;
+
+    display: block;
+
+}
+
+/* ボタン */
+
+button {
+
+    font: inherit;
+
+    cursor: pointer;
+
+    border: none;
+
+    background: none;
+
+}
+
+/* input */
+
+input,
+textarea,
+select {
+
+    font: inherit;
+
+}
+
+/* リンク */
+
+a {
+
+    text-decoration: none;
+
+    color: inherit;
+
+}
+
+/* リスト */
+
+ul,
+ol {
+
+    list-style: none;
+
+}

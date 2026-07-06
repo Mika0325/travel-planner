@@ -1,0 +1,185 @@
+.navigation {
+
+    background: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    padding: 15px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+
+}
+
+.navigation a {
+
+    color: #2f80ed;
+
+    font-weight: bold;
+
+}
+
+.navigation a:hover {
+
+    color: #0b60d0;
+
+}
+
+.memo-input {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+
+    margin-bottom: 40px;
+
+}
+
+.memo-input h2 {
+
+    margin-bottom: 20px;
+
+}
+
+.memo-input input {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ddd;
+
+    margin-bottom: 20px;
+
+    font-size: 16px;
+
+}
+
+.memo-input button {
+
+    background: #2f80ed;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 15px 25px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: .2s;
+
+}
+
+.memo-input button:hover {
+
+    background: #1769d6;
+
+}
+
+#memoList {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+/* ==========================
+   メモカード
+========================== */
+
+.memo-card {
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+
+}
+
+.memo-card p {
+
+    font-size: 16px;
+
+}
+
+.delete-button {
+
+    background: #ff5b5b;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+.delete-button:hover {
+
+    background: #d94343;
+
+}
+
+.memo-left {
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.memo-buttons {
+
+    display: flex;
+    gap: 10px;
+
+}
+
+.memo-buttons button {
+
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #2f80ed;
+    color: white;
+}
+
+.done {
+
+    text-decoration: line-through;
+    color: #999;
+
+}
