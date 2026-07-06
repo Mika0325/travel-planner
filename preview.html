@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/preview.css">
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#4f8ef7">
 
 </head>
 
@@ -168,6 +171,12 @@
     <script src="js/common.js"></script>
 
     <script src="js/preview.js"></script>
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("./service-worker.js");
+        }
+    </script>
 
 </body>
 

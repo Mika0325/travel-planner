@@ -1,0 +1,25 @@
+{
+    "name": "Travel Planner",
+    "short_name": "旅のしおり",
+    "description": "旅行の計画・メモ・しおりを管理できるWebアプリ",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#f5f7fb",
+    "theme_color": "#4f8ef7",
+    "icons": [
+        {
+            "src": "assets/icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "assets/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
