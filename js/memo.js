@@ -1,130 +1,28 @@
-// ===============================
-// メモ管理
-// ===============================
+"use strict";
 
-const STORAGE_KEY = "travelPlannerMemos";
+const STORAGE_KEY = "travelPlannerMemo";
 
-let memos = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+let memoList = loadData(STORAGE_KEY, []);
 
-const memoInput = document.getElementById("memoText");
-const addButton = document.getElementById("addMemo");
-const memoList = document.getElementById("memoList");
+const memoContainer = document.getElementById("memoList");
+const memoInput = document.getElementById("memoInput");
+const categoryInput = document.getElementById("memoCategory");
+const addButton = document.getElementById("addButton");
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("category");
+const memoCount = document.getElementById("memoCount");
 
-// 保存
-function saveMemos() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(memos));
-}
+/* -----------------------------
+   初期表示
+----------------------------- */
 
-// 表示
-function displayMemos() {
+render();
 
-    memoList.innerHTML = "";
+addButton.addEventListener("click", addMemo);
 
-    memos.forEach((memo, index) => {
+memoInput.addEventListener("keydown", e => {
 
-        const card = document.createElement("div");
-        card.className = "memo-card";
-
-        card.innerHTML = `
-            <div class="memo-left">
-                <input
-                    type="checkbox"
-                    ${memo.checked ? "checked" : ""}
-                    onchange="toggleMemo(${index})">
-
-                <span class="${memo.checked ? "done" : ""}">
-                    ${memo.text}
-                </span>
-            </div>
-
-            <div class="memo-buttons">
-
-                <button onclick="editMemo(${index})">
-                    編集
-                </button>
-
-                <button class="delete-button"
-                        onclick="deleteMemo(${index})">
-                    削除
-                </button>
-
-            </div>
-        `;
-
-        memoList.appendChild(card);
-
-    });
-
-}
-
-// 追加
-function addMemo() {
-
-    const text = memoInput.value.trim();
-
-    if (text === "") {
-        alert("メモを入力してください。");
-        return;
-    }
-
-    memos.push({
-        text: text,
-        checked: false
-    });
-
-    memoInput.value = "";
-
-    saveMemos();
-    displayMemos();
-
-}
-
-// 削除
-function deleteMemo(index) {
-
-    if (!confirm("削除しますか？")) {
-        return;
-    }
-
-    memos.splice(index, 1);
-
-    saveMemos();
-    displayMemos();
-
-}
-
-// 編集
-function editMemo(index) {
-
-    const result = prompt("編集", memos[index].text);
-
-    if (result === null) return;
-
-    const text = result.trim();
-
-    if (text === "") return;
-
-    memos[index].text = text;
-
-    saveMemos();
-    displayMemos();
-
-}
-
-// チェック
-function toggleMemo(index) {
-
-    memos[index].checked = !memos[index].checked;
-
-    saveMemos();
-    displayMemos();
-
-}
-
-// Enterキー
-memoInput.addEventListener("keypress", function (event) {
-
-    if (event.key === "Enter") {
+    if (e.key === "Enter") {
 
         addMemo();
 
@@ -132,7 +30,186 @@ memoInput.addEventListener("keypress", function (event) {
 
 });
 
-addButton.addEventListener("click", addMemo);
+searchInput.addEventListener("input", render);
 
-// 初回表示
-displayMemos();
+categoryFilter.addEventListener("change", render);
+
+/* -----------------------------
+   追加
+----------------------------- */
+
+function addMemo() {
+
+    const text = memoInput.value.trim();
+
+    if (text === "") {
+
+        showToast("メモを入力してください", "warning");
+        return;
+
+    }
+
+    memoList.unshift({
+
+        id: createId(),
+
+        text: text,
+
+        category: categoryInput.value,
+
+        completed: false,
+
+        created: new Date().toISOString()
+
+    });
+
+    save();
+
+    memoInput.value = "";
+
+    memoInput.focus();
+
+}
+
+/* -----------------------------
+   保存
+----------------------------- */
+
+function save() {
+
+    saveData(STORAGE_KEY, memoList);
+
+    render();
+
+    showToast("保存しました");
+
+}
+
+/* -----------------------------
+   描画
+----------------------------- */
+
+function render() {
+
+    memoContainer.innerHTML = "";
+
+    let list = [...memoList];
+
+    const keyword = searchInput.value.toLowerCase();
+
+    if (keyword) {
+
+        list = list.filter(m => m.text.toLowerCase().includes(keyword));
+
+    }
+
+    if (categoryFilter.value !== "all") {
+
+        list = list.filter(m => m.category === categoryFilter.value);
+
+    }
+
+    memoCount.textContent = list.length;
+
+    if (list.length === 0) {
+
+        memoContainer.innerHTML = `
+            <div class="empty">
+                <h2>メモがありません</h2>
+                <p>上から追加してください。</p>
+            </div>
+        `;
+
+        return;
+
+    }
+
+    list.forEach(createMemoCard);
+
+}
+
+/* -----------------------------
+   カード生成
+----------------------------- */
+
+function createMemoCard(memo) {
+
+    const card = document.createElement("div");
+
+    card.className = "memo-card";
+
+    card.innerHTML = `
+
+        <div class="memo-left">
+
+            <input
+                type="checkbox"
+                ${memo.completed ? "checked" : ""}>
+
+            <div>
+
+                <div class="memo-text ${memo.completed ? "completed" : ""}">
+                    ${escapeHtml(memo.text)}
+                </div>
+
+                <small>${memo.category}</small>
+
+            </div>
+
+        </div>
+
+        <div class="memo-actions">
+
+            <button class="icon-btn edit-btn">
+                ✏️
+            </button>
+
+            <button class="icon-btn delete-btn">
+                🗑️
+            </button>
+
+        </div>
+
+    `;
+
+    const checkbox = card.querySelector("input");
+
+    checkbox.addEventListener("change", () => {
+
+        memo.completed = !memo.completed;
+
+        save();
+
+    });
+
+    card.querySelector(".delete-btn")
+        .addEventListener("click", () => {
+
+            if (confirm("削除しますか？")) {
+
+                memoList = memoList.filter(m => m.id !== memo.id);
+
+                save();
+
+            }
+
+        });
+
+    card.querySelector(".edit-btn")
+        .addEventListener("click", () => {
+
+            const text = prompt("編集", memo.text);
+
+            if (text === null) return;
+
+            if (text.trim() === "") return;
+
+            memo.text = text.trim();
+
+            save();
+
+        });
+
+    memoContainer.appendChild(card);
+
+}

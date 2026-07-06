@@ -9,8 +9,8 @@
 
     <title>メモ | 旅のしおり</title>
 
-    <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/memo.css">
 
 </head>
@@ -19,54 +19,193 @@
 
     <header>
 
-        <h1>📝 メモ</h1>
+        <div class="container header-inner">
+
+            <a href="index.html" class="logo">
+
+                ✈ 旅のしおり
+
+            </a>
+
+            <nav>
+
+                <ul>
+
+                    <li>
+
+                        <a href="index.html">
+
+                            🏠 ホーム
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="memo.html" class="active">
+
+                            📝 メモ
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="planner.html">
+
+                            📅 計画
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="preview.html">
+
+                            📖 確認
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
 
     </header>
 
-    <nav class="navigation">
-
-        <a href="index.html">ホーム</a>
-
-        <a href="planner.html">計画</a>
-
-        <a href="preview.html">確認</a>
-
-    </nav>
-
     <main>
 
-        <section class="memo-input">
+        <div class="container">
 
-            <h2>新しいメモ</h2>
+            <section class="page-header">
 
-            <input type="text" id="memoText" placeholder="例：充電器を忘れない">
+                <div>
 
-            <button id="addMemo">
+                    <h1>
 
-                ＋ メモを追加
+                        📝 メモ
 
-            </button>
+                    </h1>
 
-        </section>
+                    <p>
 
+                        旅行前の持ち物や自由メモを管理できます。
 
-        <section>
+                    </p>
 
-            <h2>
+                </div>
 
-                メモ一覧
+                <div class="memo-counter">
 
-            </h2>
+                    保存件数
 
-            <div id="memoList">
+                    <span id="memoCount">
 
-                <!-- JavaScriptで追加 -->
+                        0
 
-            </div>
+                    </span>
 
-        </section>
+                    件
+
+                </div>
+
+            </section>
+
+            <section class="toolbar card">
+
+                <input type="search" id="searchInput" placeholder="メモを検索">
+
+                <select id="category">
+
+                    <option value="all">
+
+                        すべて
+
+                    </option>
+
+                    <option>
+
+                        持ち物
+
+                    </option>
+
+                    <option>
+
+                        買い物
+
+                    </option>
+
+                    <option>
+
+                        その他
+
+                    </option>
+
+                </select>
+
+            </section>
+
+            <section class="add-area card">
+
+                <h2>
+
+                    新しいメモ
+
+                </h2>
+
+                <div class="input-group">
+
+                    <select id="memoCategory">
+                        <option value="持ち物">🎒 持ち物</option>
+                        <option value="買い物">🛒 買い物</option>
+                        <option value="その他">📝 その他</option>
+                    </select>
+
+                    <input type="text" id="memoInput" placeholder="例：モバイルバッテリー">
+
+                    <button id="addButton" class="btn btn-primary">
+
+                        ＋追加
+
+                    </button>
+
+                </div>
+
+            </section>
+
+            <section>
+
+                <div id="memoList" class="memo-list">
+
+                </div>
+
+            </section>
+
+        </div>
 
     </main>
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                © 2026 Travel Planner
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="js/common.js"></script>
 
     <script src="js/memo.js"></script>
 

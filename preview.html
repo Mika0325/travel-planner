@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>確認 | 旅のしおり</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/preview.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container header-inner">
+
+            <a href="index.html" class="logo">
+
+                ✈ 旅のしおり
+
+            </a>
+
+            <nav>
+
+                <ul>
+
+                    <li>
+
+                        <a href="index.html">
+
+                            🏠 ホーム
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="memo.html">
+
+                            📝 メモ
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="planner.html">
+
+                            📅 計画
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="preview.html" class="active">
+
+                            📖 確認
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <div class="container">
+
+            <section class="page-header">
+
+                <div>
+
+                    <h1>
+
+                        📖 旅のしおり
+
+                    </h1>
+
+                    <p>
+
+                        旅行前の最終確認ページ
+
+                    </p>
+
+                </div>
+
+                <div class="preview-buttons">
+
+                    <button id="printButton" class="btn btn-primary">
+
+                        🖨️ 印刷
+
+                    </button>
+
+                    <button id="shareButton" class="btn btn-success">
+
+                        📤 共有
+
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- スケジュール -->
+
+            <section class="card">
+
+                <h2>
+
+                    📅 スケジュール
+
+                </h2>
+
+                <div id="schedulePreview">
+
+                </div>
+
+            </section>
+
+            <!-- メモ -->
+
+            <section class="card mt-3">
+
+                <h2>
+
+                    📝 持ち物・メモ
+
+                </h2>
+
+                <div id="memoPreview">
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        <div class="container">
+
+            © 2026 Travel Planner
+
+        </div>
+
+    </footer>
+
+    <script src="js/common.js"></script>
+
+    <script src="js/preview.js"></script>
+
+</body>
+
+</html>

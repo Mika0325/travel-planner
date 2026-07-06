@@ -9,97 +9,220 @@
 
     <title>旅のしおり</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="旅行の予定・メモ・しおりをまとめて管理できるWebアプリ">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/home.css">
 
 </head>
 
 <body>
 
+    <!-- =======================
+         Header
+    ======================== -->
+
     <header>
 
-        <h1>✈ 旅のしおり</h1>
+        <div class="container header-inner">
+
+            <a href="index.html" class="logo">
+                ✈ 旅のしおり
+            </a>
+
+            <nav>
+
+                <ul>
+
+                    <li>
+                        <a href="index.html" class="active">
+                            🏠 ホーム
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="memo.html">
+                            📝 メモ
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="planner.html">
+                            📅 計画
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="preview.html">
+                            📖 確認
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
 
     </header>
 
+    <!-- =======================
+         Main
+    ======================== -->
 
     <main>
 
+        <!-- Hero -->
+
         <section class="hero">
 
-            <h2>
+            <div class="container hero-content">
 
-                旅行の計画をもっと簡単に。
+                <span class="hero-badge">
+                    Travel Planner
+                </span>
 
-            </h2>
+                <h1>
 
-            <p>
+                    旅行をもっと楽しく、
+                    <br>
+                    もっと分かりやすく。
 
-                予定・メモ・確認を一つのサイトで管理できます。
+                </h1>
 
-            </p>
+                <p>
+
+                    旅行の予定・持ち物・メモを
+                    一つのWebサイトでまとめて管理できます。
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="planner.html" class="btn btn-primary">
+
+                        📅 計画を立てる
+
+                    </a>
+
+                    <a href="memo.html" class="btn btn-success">
+
+                        📝 メモを書く
+
+                    </a>
+
+                </div>
+
+            </div>
 
         </section>
 
+        <!-- Menu -->
 
-        <section class="menu">
+        <section class="container">
 
-            <a href="memo.html" class="card">
+            <h2 class="section-title">
 
-                <h3>
+                メニュー
 
-                    📝 メモ
+            </h2>
 
-                </h3>
+            <div class="menu-grid">
 
-                <p>
+                <!-- Card -->
 
-                    持ち物や自由メモを管理します。
+                <a href="memo.html" class="menu-card">
 
-                </p>
+                    <div class="menu-icon">
 
-            </a>
+                        📝
 
+                    </div>
 
-            <a href="planner.html" class="card">
+                    <h3>
 
-                <h3>
+                        メモ
 
-                    📅 計画
+                    </h3>
 
-                </h3>
+                    <p>
 
-                <p>
+                        持ち物や自由メモを管理できます。
 
-                    旅行の予定を時間ごとに作成します。
+                    </p>
 
-                </p>
+                </a>
 
-            </a>
+                <!-- Card -->
 
+                <a href="planner.html" class="menu-card">
 
-            <a href="preview.html" class="card">
+                    <div class="menu-icon">
 
-                <h3>
+                        📅
 
-                    📖 確認
+                    </div>
 
-                </h3>
+                    <h3>
 
-                <p>
+                        計画
 
-                    完成したしおりを見やすく表示します。
+                    </h3>
 
-                </p>
+                    <p>
 
-            </a>
+                        時間ごとの旅行スケジュールを作成できます。
+
+                    </p>
+
+                </a>
+
+                <!-- Card -->
+
+                <a href="preview.html" class="menu-card">
+
+                    <div class="menu-icon">
+
+                        📖
+
+                    </div>
+
+                    <h3>
+
+                        確認
+
+                    </h3>
+
+                    <p>
+
+                        完成した旅のしおりを見やすく確認できます。
+
+                    </p>
+
+                </a>
+
+            </div>
 
         </section>
 
     </main>
 
+    <!-- =======================
+         Footer
+    ======================== -->
+
     <footer>
 
-        © 2026 Travel Planner
+        <div class="container">
+
+            <p>
+
+                © 2026 Travel Planner
+
+            </p>
+
+        </div>
 
     </footer>
 

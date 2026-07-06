@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>計画 | 旅のしおり</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/planner.css">
+
+</head>
+
+<body>
+
+    <!-- ==========================
+         Header
+    =========================== -->
+
+    <header>
+
+        <div class="container header-inner">
+
+            <a href="index.html" class="logo">
+
+                ✈ 旅のしおり
+
+            </a>
+
+            <nav>
+
+                <ul>
+
+                    <li><a href="index.html">🏠 ホーム</a></li>
+
+                    <li><a href="memo.html">📝 メモ</a></li>
+
+                    <li><a href="planner.html" class="active">📅 計画</a></li>
+
+                    <li><a href="preview.html">📖 確認</a></li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- ==========================
+         Main
+    =========================== -->
+
+    <main>
+
+        <div class="container">
+
+            <!-- ページタイトル -->
+
+            <section class="page-header">
+
+                <div>
+
+                    <h1>📅 旅行計画</h1>
+
+                    <p>
+
+                        時間ごとのスケジュールを作成します。
+
+                    </p>
+
+                </div>
+
+                <div class="plan-counter">
+
+                    登録件数
+
+                    <span id="planCount">
+
+                        0
+
+                    </span>
+
+                    件
+
+                </div>
+
+            </section>
+
+            <!-- 入力フォーム -->
+
+            <section class="card planner-form">
+
+                <h2>
+
+                    新しい予定
+
+                </h2>
+
+                <div class="time-group">
+
+                    <div>
+
+                        <label for="startTime">
+
+                            開始時間
+
+                        </label>
+
+                        <input type="time" id="startTime">
+
+                    </div>
+
+                    <div>
+
+                        <label for="endTime">
+
+                            終了時間
+
+                        </label>
+
+                        <input type="time" id="endTime">
+
+                    </div>
+
+                </div>
+
+                <label for="destination">
+
+                    目的地
+
+                </label>
+
+                <input type="text" id="destination" placeholder="例：京都駅">
+
+                <label for="planMemo">
+
+                    補足メモ
+
+                </label>
+
+                <textarea id="planMemo" rows="4" placeholder="集合場所・注意事項など"></textarea>
+
+                <label for="imageUrl">
+
+                    画像URL
+
+                </label>
+
+                <input type="url" id="imageUrl" placeholder="https://">
+
+                <label for="mapUrl">
+
+                    GoogleマップURL
+
+                </label>
+
+                <input type="url" id="mapUrl" placeholder="https://maps.google.com/...">
+
+                <button id="addPlanButton" class="btn btn-primary mt-2">
+
+                    ＋予定を追加
+
+                </button>
+
+            </section>
+
+            <!-- 一覧 -->
+
+            <section class="mt-3">
+
+                <h2 class="section-title">
+
+                    スケジュール
+
+                </h2>
+
+                <div id="planList" class="plan-list">
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- ==========================
+         Footer
+    =========================== -->
+
+    <footer>
+
+        <div class="container">
+
+            © 2026 Travel Planner
+
+        </div>
+
+    </footer>
+
+    <script src="js/common.js"></script>
+
+    <script src="js/planner.js"></script>
+
+</body>
+
+</html>
