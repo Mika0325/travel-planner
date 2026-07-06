@@ -432,38 +432,27 @@
 
 /* ========= レスポンシブ ========= */
 
-@media(max-width:768px) {
+@media (max-width: 768px) {
 
     .input-group {
         grid-template-columns: 1fr;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .input-group input,
+    .input-group textarea,
+    .input-group select,
+    .input-group button {
+        width: 100%;
     }
 
 }
 
-.input-group {
-    display: grid;
-    grid-template-columns: 180px 1fr 130px;
-    gap: 15px;
-}
+/* =========================
+   安定化（はみ出し防止）
+========================= */
 
-.input-group button {
-
-    width: 100%;
-
-}
-
-.memo-card {
-
-    flex-direction: column;
-
-    align-items: flex-start;
-
-}
-
-.memo-actions {
-
-    width: 100%;
-
-    justify-content: flex-end;
-
+* {
+    box-sizing: border-box;
 }
